@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:22.2.0'
     compile 'com.android.support:recyclerview-v7:22.2.0'
     compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:support-annotations:22.2.0'
     compile 'com.jakewharton:butterknife:5.1.1'
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'net.callumtaylor:asynchttpclient:1.5'
 }
