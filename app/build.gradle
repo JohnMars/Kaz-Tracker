@@ -12,10 +12,25 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        def STRING = 'String'
+        def BASE_URL = 'BASE_URL'
+        def API_ENDPOINT_PROD = '"http://track.kazpost.kz"'
+        def API_ENDPOINT_DEBUG = '"http://track.kazpost.kz"'
+
+        debug {
+            buildConfigField STRING, BASE_URL, API_ENDPOINT_DEBUG
+        }
+
         release {
+            buildConfigField STRING, BASE_URL, API_ENDPOINT_PROD
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
     }
 }
 
@@ -27,5 +42,5 @@ dependencies {
     compile 'com.android.support:design:22.2.0'
     compile 'com.android.support:support-annotations:22.2.0'
     compile 'com.jakewharton:butterknife:5.1.1'
-    compile 'net.callumtaylor:asynchttpclient:1.5'
+    compile 'com.loopj.android:android-async-http:1.4.8'
 }
