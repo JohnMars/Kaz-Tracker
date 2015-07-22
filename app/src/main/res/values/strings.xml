@@ -6,4 +6,6 @@
 
     <string name="tracking">Tracking</string>
     <string name="branches">Branches</string>
+
+    <string name="content_tracking_status">Tracking status</string>
 </resources>
