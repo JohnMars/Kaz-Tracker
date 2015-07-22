@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import ninja.janibek.kaztracker.R;
 import ninja.janibek.kaztracker.model.Tracking;
 
@@ -46,15 +48,20 @@ public class TrackingAdapter extends RecyclerView.Adapter<TrackingAdapter.Tracki
     }
 
     protected static class TrackingViewHolder extends RecyclerView.ViewHolder {
-        private TextView trackingIdView;
+
+        @InjectView(R.id.layout_item_tracking_text_view_id)
+        TextView trackingIdView;
+        @InjectView(R.id.layout_item_tracking_text_view_status)
+        TextView trackingStatusView;
 
         public TrackingViewHolder(View itemView) {
             super(itemView);
-            trackingIdView = (TextView) itemView.findViewById(R.id.layout_item_tracking_text_view_id);
+            ButterKnife.inject(this, itemView);
         }
 
         public void bindViewHolder(Tracking tracking) {
             trackingIdView.setText(tracking.getTrackerId());
+            trackingStatusView.setText(tracking.getxStatus());
         }
     }
 }

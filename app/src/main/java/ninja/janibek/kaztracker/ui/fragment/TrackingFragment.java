@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +16,7 @@ import ninja.janibek.kaztracker.model.Tracking;
 import ninja.janibek.kaztracker.network.ApiClient;
 import ninja.janibek.kaztracker.network.Callback;
 import ninja.janibek.kaztracker.ui.adapter.TrackingAdapter;
+import ninja.janibek.kaztracker.ui.widget.DividerItemDecoration;
 import ninja.janibek.kaztracker.utils.Logger;
 
 /**
@@ -49,6 +48,7 @@ public class TrackingFragment extends BaseFragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_tracking_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(mAdapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         getTracking();
     }
 

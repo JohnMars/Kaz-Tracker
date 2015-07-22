@@ -11,18 +11,19 @@ import ninja.janibek.kaztracker.model.Tracking;
  */
 class ApiParcel {
 
-    private static final String TRACK_ID_KEY = "trackid";
-    private static final String TIMESTAMP_KEY = "timestamp";
+    private static final String TRACK_ID = "trackid";
+    private static final String TIMESTAMP = "timestamp";
     private static final String REG_DATE = "reg_date";
     private static final String RECIPIENT_NAME = "recipient_name";
     private static final String RECIPIENT_ADDRESS = "recipient_address";
     private static final String DLV_DEP_NAME = "dlv_dep_name";
     private static final String DLV_POST_INDEX = "dlv_postindex";
     private static final String POST_TYPE = "post_type";
+    private static final String X_STATUS = "x_status";
 
     public static Tracking parceTracking(JSONObject json) throws JSONException {
-        String trackId = json.getString(TRACK_ID_KEY);
-        String timestamp = json.getString(TIMESTAMP_KEY);
+        String trackId = json.getString(TRACK_ID);
+        String timestamp = json.getString(TIMESTAMP);
         Tracking.Builder builder = new Tracking.Builder(trackId, timestamp);
 
         String value;
@@ -50,6 +51,10 @@ class ApiParcel {
         if (json.has(POST_TYPE)) {
             intValue = json.getInt(POST_TYPE);
             builder.setPostType(intValue);
+        }
+        if (json.has(X_STATUS)) {
+            value = json.getString(X_STATUS);
+            builder.setxStatus(value);
         }
 
         return builder.build();
